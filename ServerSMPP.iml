@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
+    <output url="file://$MODULE_DIR$/ServerSMPP/target/classes" />
+    <output-test url="file://$MODULE_DIR$/ServerSMPP/target/test-classes" />
+    <content url="file://$MODULE_DIR$/ServerSMPP">
+      <sourceFolder url="file://$MODULE_DIR$/ServerSMPP/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ServerSMPP/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/ServerSMPP/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/ServerSMPP/target" />
+    </content>
+    <orderEntry type="jdk" jdkName="19" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.jsmpp:jsmpp:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.32" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+  </component>
+</module>

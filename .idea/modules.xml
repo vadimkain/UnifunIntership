@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ClientSMPP.iml" filepath="$PROJECT_DIR$/ClientSMPP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ServerSMPP.iml" filepath="$PROJECT_DIR$/ServerSMPP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UnifunIntership.iml" filepath="$PROJECT_DIR$/UnifunIntership.iml" />
+    </modules>
+  </component>
+</project>
