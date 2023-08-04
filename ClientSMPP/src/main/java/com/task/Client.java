@@ -31,8 +31,8 @@ public class Client {
 
             log.info("Object session has been created: " + session.toString());
 
-            // Устанавливаем таймаут транзакции на 6000 миллисекунд (6 секунд)
-            session.setTransactionTimer(3000); // Таймаут в 3 секунды
+            // Устанавливаем таймаут транзакции на 3000 миллисекунд (6 секунд)
+            session.setTransactionTimer(3000);
 
             // Создаем параметры привязки (bind) сессии
             BindParameter bindParam = new BindParameter(
@@ -46,49 +46,6 @@ public class Client {
             );
 
             log.info("BindParameter has been created: " + bindParam.toString());
-
-//            session.setMessageReceiverListener(new MessageReceiverListener() {
-//                /**
-//                 * Метод onAcceptDeliverSm обрабатывает входящее SMS-сообщение DeliverSm.
-//                 * Если сообщение содержит квитанцию о доставке (SMSC_DEL_RECEIPT), то парсит содержимое квитанции
-//                 * и логирует информацию о доставке сообщения.
-//                 * Если сообщение не содержит квитанцию о доставке, то выводит в лог содержимое сообщения.
-//                 *
-//                 * @param deliverSm Входящее SMS-сообщение типа DeliverSm
-//                 * @throws ProcessRequestException Исключение, которое может быть выброшено при обработке запроса
-//                 */
-//                @Override
-//                public void onAcceptDeliverSm(DeliverSm deliverSm) throws ProcessRequestException {
-//                    // Проверяем, содержит ли сообщение квитанцию о доставке (SMSC_DEL_RECEIPT)
-//                    if (MessageType.SMSC_DEL_RECEIPT.containedIn(deliverSm.getEsmClass())) {
-//                        try {
-//                            // Получаем квитанцию о доставке из содержимого сообщения
-//                            DeliveryReceipt deliveryReceipt = deliverSm.getShortMessageAsDeliveryReceipt();
-//                            // Преобразуем идентификатор квитанции из формата строки в шестнадцатеричное значение
-//                            String messageId = Long.toString(Long.parseLong(deliveryReceipt.getId()) & 0xffffffff, 16).toUpperCase();
-//                            // Логируем информацию о доставке сообщения
-//                            log.info("Received '{}' : {}", messageId, deliveryReceipt);
-//                        } catch (InvalidDeliveryReceiptException e) {
-//                            // В случае ошибки парсинга квитанции логируем исключение
-//                            log.error("Receive failed ", e);
-//                        }
-//                    } else {
-//                        // Если сообщение не содержит квитанцию о доставке, то выводим содержимое сообщения в лог
-//                        log.info("Receiving message: {}", new String(deliverSm.getShortMessage()));
-//                    }
-//                }
-//
-//
-//                @Override
-//                public void onAcceptAlertNotification(AlertNotification alertNotification) {
-//                    log.info("Receiving alert for {} from {}", alertNotification.getSourceAddr(), alertNotification.getEsmeAddr());
-//                }
-//
-//                @Override
-//                public DataSmResult onAcceptDataSm(DataSm dataSm, Session session) throws ProcessRequestException {
-//                    return null;
-//                }
-//            });
 
             // Подключаемся к серверу и выполняем привязку (bind) с указанными параметрами
 

@@ -1,5 +1,6 @@
 package com.task;
 
+import org.jsmpp.PDUStringException;
 import org.jsmpp.SMPPConstant;
 import org.jsmpp.bean.*;
 import org.jsmpp.extra.ProcessRequestException;
@@ -12,6 +13,7 @@ import org.jsmpp.util.TimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Server {
@@ -56,13 +58,13 @@ public class Server {
 
                     // Метод onAcceptSubmitSm обрабатывает входящее SMS-сообщение
                     public SubmitSmResult onAcceptSubmitSm(SubmitSm submitSm, SMPPServerSession smppServerSession) throws ProcessRequestException {
-                        log.info("Received message from " + submitSm.getSourceAddr() + ": " + submitSm.getShortMessage());
 
                         try {
+
+                            log.info("Received message from " + submitSm.getSourceAddr() + ": " + new String(submitSm.getShortMessage(), StandardCharsets.UTF_8));
+
                             // Здесь можно добавить обработку полученных сообщений
                             // Например, сохранение сообщения в базе данных или пересылка на другой номер
-
-                            log.info("Что-то было получено");
 
                             // В данном примере просто отправляем успешный ответ на клиентскую сессию
                             return new SubmitSmResult(
@@ -118,11 +120,29 @@ public class Server {
                 while (true) {
                     // Принимаем новую сессию от клиента
                     org.jsmpp.session.SMPPServerSession serverSession = serverSessionListener.accept();
-                    log.info("Accepted new SMPP session #" + sessionCounter.incrementAndGet());
 
-                    // Устанавливаем слушатель сообщений для новой сессии, чтобы обрабатывать входящие SMS-сообщения
-                    serverSession.setMessageReceiverListener(serverSessionListener.getMessageReceiverListener());
+                    // Ожидаем привязку (bind) от клиента в течение 10 секунд
+                    BindRequest bindRequest = serverSession.waitForBind(10000L);
+
+                    // Логируем информацию о привязке (bind) для данной сессии, включая идентификатор сессии и версию интерфейса
+                    log.info("Accepting bind for session {}, interface version {}", serverSession.getSessionId(), bindRequest.getInterfaceVersion());
+
+                    try {
+                        // Принимаем привязку от клиента с указанием имени пользователя ("username") и версии интерфейса (IF_34)
+                        bindRequest.accept("username", InterfaceVersion.IF_34);
+                    } catch (PDUStringException e) {
+                        // Если возникла ошибка при обработке привязки, логируем и отправляем отказ с кодом ошибки STAT_ESME_RSYSERR
+                        log.error("PDU string exception", e);
+                        bindRequest.reject(SMPPConstant.STAT_ESME_RSYSERR);
+                    }
+
+                    // Устанавливаем таймер для отправки запросов enquire_link (проверка активности соединения) каждые 10 секунд
+                    serverSession.setEnquireLinkTimer(10000);
+
+                    // Логируем информацию о новой принятой сессии и увеличиваем счетчик сессий
+                    log.info("Accepted new SMPP session #" + sessionCounter.incrementAndGet());
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
