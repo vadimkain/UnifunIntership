@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ServerSMPP" />
+        <module name="ReceiverClientSMPP" />
         <module name="ClientSMPP" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ClientSMPP" target="11" />
+      <module name="ReceiverClientSMPP" target="11" />
       <module name="ServerSMPP" target="11" />
     </bytecodeTargetLevel>
   </component>

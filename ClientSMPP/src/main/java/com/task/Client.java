@@ -92,7 +92,7 @@ public class Client {
             } catch (PDUException e) {
                 log.error("Invalid PRU parameter " + e);
             } catch (ResponseTimeoutException e) {
-                log.error("Response timeout " + e);
+                log.error("Response tiдmeout " + e);
             } catch (InvalidResponseException e) {
                 log.error("Receive invalid response " + e);
             } catch (NegativeResponseException e) {

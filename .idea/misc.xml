@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/ClientSMPP/pom.xml" />
         <option value="$PROJECT_DIR$/ServerSMPP/pom.xml" />
+        <option value="$PROJECT_DIR$/ReceiverClientSMPP/pom.xml" />
       </list>
     </option>
   </component>
