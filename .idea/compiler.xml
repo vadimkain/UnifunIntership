@@ -2,12 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ServerSMPP" />
-        <module name="ReceiverClientSMPP" />
         <module name="ClientSMPP" />
       </profile>
     </annotationProcessing>
@@ -15,6 +15,7 @@
       <module name="ClientSMPP" target="11" />
       <module name="ReceiverClientSMPP" target="11" />
       <module name="ServerSMPP" target="11" />
+      <module name="UnifunIntership" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

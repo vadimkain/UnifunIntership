@@ -4,38 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.task</groupId>
+
+    <parent>
+        <groupId>com.task</groupId>
+        <artifactId>UnifunIntership</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <artifactId>ServerSMPP</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
-
-
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.jsmpp/jsmpp -->
-        <dependency>
-            <groupId>org.jsmpp</groupId>
-            <artifactId>jsmpp</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-
-
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.32</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-api</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-    </dependencies>
 
 </project>
