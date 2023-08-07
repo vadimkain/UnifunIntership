@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.mobicents.protocols.ss7.congestion:congestion:8.0.0-137">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mobicents/protocols/ss7/congestion/congestion/8.0.0-137/congestion-8.0.0-137.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mobicents/protocols/ss7/congestion/congestion/8.0.0-137/congestion-8.0.0-137-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mobicents/protocols/ss7/congestion/congestion/8.0.0-137/congestion-8.0.0-137-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

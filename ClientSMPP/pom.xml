@@ -11,4 +11,12 @@
     </parent>
 
     <artifactId>ClientSMPP</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mobicents.protocols.ss7.map</groupId>
+            <artifactId>map-api</artifactId>
+            <version>8.0.0-137</version>
+        </dependency>
+    </dependencies>
 </project>

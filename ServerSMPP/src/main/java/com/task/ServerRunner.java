@@ -13,7 +13,7 @@ public class ServerRunner {
                 .serverPort(2775)
                 .waitBind(10)
                 .poolSize(10)
-                .timeout(10000)
+                .timeout(10000000)
                 .nextPartWaiting(1000)
                 .processorDegree(4)
                 .interfaceVersion(InterfaceVersion.IF_34.value())
