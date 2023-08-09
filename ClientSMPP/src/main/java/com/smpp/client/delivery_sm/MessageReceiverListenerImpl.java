@@ -1,7 +1,6 @@
 package com.smpp.client.delivery_sm;
 
 import com.smpp.client.ClientSmppConfiguration;
-import com.smpp.client.SmppClient;
 import org.jsmpp.bean.AlertNotification;
 import org.jsmpp.bean.DataSm;
 import org.jsmpp.bean.DeliverSm;

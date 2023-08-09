@@ -77,6 +77,8 @@ public class SmppDeliveryReceiptTask implements Runnable {
 
             log.info("Delivery has been in session {}", _SESSION.getSessionId());
 
+            _SESSION.unbindAndClose();
+
         } catch (PDUException e) {
             log.error("Invalid PRU parameter " + e);
         } catch (ResponseTimeoutException e) {

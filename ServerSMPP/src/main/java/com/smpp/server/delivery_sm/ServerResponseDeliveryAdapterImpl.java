@@ -35,7 +35,6 @@ public class ServerResponseDeliveryAdapterImpl extends ServerResponseDeliveryAda
         }
 
         log.info("Submit_sm has been sent successfully: Message id {}, session id {}", messageId, sessionId);
-        log.info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     @Override

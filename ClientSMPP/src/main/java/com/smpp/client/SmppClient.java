@@ -102,7 +102,7 @@ public class SmppClient implements Runnable {
         if (smppSession != null) {
             // TODO: Разобраться с контроллером который тут должен был что-то делать
             clientAvailable.set(false);
-            smppSession.close(); // TODO: ???
+            smppSession.unbindAndClose(); // TODO: ???
         }
 
         smppSession = new SMPPSession();
